@@ -4,6 +4,8 @@
 #announce: SaaS
 #subscription-userinfo: upload=0; download=0; total=0; expire=0
 
-vless://512a5f4f-39bc-43eb-860e-de6df8a30e97@171.22.31.231:8443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.google.com&fp=chrome&pbk=7lLGXicuukokg_wxCFwFxdK255xgeOmdPRcvTKJ-X38&sid=5397a3669940b591#%F0%9F%87%A9%F0%9F%87%AA%20Germany
+vless://512a5f4f-39bc-43eb-860e-de6df8a30e97@171.22.31.231:8443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.google.com&fp=chrome&pbk=7lLGXicuukokg_wxCFwFxdK255xgeOmdPRcvTKJ-X38&sid=5397a3669940b591#%F0%9F%87%A9%F0%9F%87%AA%20Германия%20[❌Белые списки]
 
-vless://00cd6725-2a2a-4bd3-9292-30bfc45b66c9@51.250.101.119:8443?encryption=none&security=reality&sni=ads.x5.ru&fp=qq&pbk=J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs&sid=6b2f4e6ac9b1d2f0&type=grpc&serviceName=grpc#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20(gRPC)
+vless://00cd6725-2a2a-4bd3-9292-30bfc45b66c9@51.250.101.119:8443?encryption=none&security=reality&sni=ads.x5.ru&fp=qq&pbk=J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs&sid=6b2f4e6ac9b1d2f0&type=grpc&serviceName=grpc#%F0%9F%87%B5%F0%9F%87%B1%20Польша%20[✅Белые cписки]
+
+vless://00cd6725-2a2a-4bd3-9292-30bfc45b66c9@84.201.133.71:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=ads.x5.ru&fp=qq&pbk=J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs&sid=a20d3ed244c76426&type=tcp#%F0%9F%87%B5%F0%9F%87%B1%20Польша%20[✅Белые cписки]
