@@ -5,3 +5,152 @@
 #subscription-userinfo: upload=0; download=0; total=0; expire=0
 
 vless://512a5f4f-39bc-43eb-860e-de6df8a30e97@171.22.31.231:8443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.google.com&fp=chrome&pbk=7lLGXicuukokg_wxCFwFxdK255xgeOmdPRcvTKJ-X38&sid=5397a3669940b591#%F0%9F%87%A9%F0%9F%87%AA%20Germany
+{
+    "burstObservatory": {
+        "pingConfig": {
+            "connectivity": "",
+            "destination": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "sampling": 2,
+            "timeout": "10s"
+        },
+        "subjectSelector": [
+            "proxy"
+        ]
+    },
+    "dns": {
+        "queryStrategy": "UseIPv4",
+        "servers": [
+            "1.1.1.1",
+            "https://dns.adguard.com/dns-query"
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "enabled": true,
+                "routeOnly": false
+            },
+            "tag": "socks"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "allowTransparent": false
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "enabled": true,
+                "routeOnly": false
+            },
+            "tag": "http"
+        }
+    ],
+    "meta": null,
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "178.154.216.169",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "00cd6725-2a2a-4bd3-9292-30bfc45b66c9"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "fingerprint": "qq",
+                    "publicKey": "J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs",
+                    "serverName": "ads.x5.ru",
+                    "shortId": "a20d3ed244c76426",
+                    "show": false
+                },
+                "security": "reality",
+                "tcpSettings": {
+                }
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ],
+    "remarks": "🇵🇱Польша(Обход#4-Reality)",
+    "routing": {
+        "balancers": [
+            {
+                "fallbackTag": "direct",
+                "selector": [
+                    "proxy"
+                ],
+                "strategy": {
+                    "settings": {
+                        "baselines": [
+                            "1s"
+                        ],
+                        "expected": 2,
+                        "maxRTT": "1s",
+                        "tolerance": 60.01
+                    },
+                    "type": "leastLoad"
+                },
+                "tag": "Balancer"
+            }
+        ],
+        "domainMatcher": "hybrid",
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "domain": [
+                    "geosite:category-ads-all"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            },
+            {
+                "outboundTag": "direct",
+                "protocol": [
+                    "bittorrent"
+                ],
+                "type": "field"
+            },
+            {
+                "balancerTag": "Balancer",
+                "network": "tcp,udp",
+                "type": "field"
+            }
+        ]
+    }
+}
